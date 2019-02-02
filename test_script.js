@@ -27,7 +27,7 @@
       "moonrise-kingdom-dust": "#B5966D",
       "moonrise-kingdom-light-blue-grey": "#DAECED",
       "moonrise-kingdom-greenish-beige": "#CECD7B"
-    }
+    },
     {
       "fantastic-mr-fox-maize": "#F8DF4F",
       "fantastic-mr-fox-brownish": "#A35E60",
@@ -56,9 +56,9 @@
     }
   ];
 
+  window.andersonColorNames = ['the-life-aquatic-with-steve-zissou-azure', 'the-life-aquatic-with-steve-zissou-dark-slate-blue', 'the-life-aquatic-with-steve-zissou-tomato', 'the-life-aquatic-with-steve-zissou-beige', 'the-life-aquatic-with-steve-zissou-silver', 'the-royal-tenenbaums-leather', 'the-royal-tenenbaums-light-khaki', 'the-royal-tenenbaums-blush', 'the-royal-tenenbaums-pale-peach', 'the-royal-tenenbaums-greyish-teal', 'grand-budapest-hotel-faded-pink', 'grand-budapest-hotel-light-periwinkle', 'grand-budapest-hotel-faded-blue', 'moonrise-kingdom-brick', 'moonrise-kingdom-dull-yellow', 'moonrise-kingdom-dust', 'moonrise-kingdom-light-blue-grey', 'moonrise-kingdom-greenish-beige', 'fantastic-mr-fox-maize', 'fantastic-mr-fox-brownish', 'fantastic-mr-fox-mud-brown', 'fantastic-mr-fox-dull-orange', 'fantastic-mr-fox-beige', 'the-darjeeling-limited-greyish', 'the-darjeeling-limited-brownish-orange', 'the-darjeeling-limited-reddish-grey', 'the-darjeeling-limited-clay', 'hotel-chevalier-gunmetal', 'hotel-chevalier-pale-gold', 'hotel-chevalier-silver', 'hotel-chevalier-pinkish-grey', 'rushmore-sand', 'rushmore-pinkish-tan', 'rushmore-pine', 'rushmore-dark', 'rushmore-faded-red' ];
   window.andersonColors = ["#1DACE8","#1C366B","#F24D29","#E5C4A1","#C4CFD0","#9A872D","#F5CDB6","#F7B0AA","#FDDDA4","#76A08A","#D8A49B","#C7CEF6","#7496D2","#B62A3D","#EDCB64","#B5966D","#DAECED","#CECD7B","#F8DF4F","#A35E60","#541F12","#CC8B3C","#E8D2B9","#AEA8A8","#CB9E23","#957A6D","#AC6E49","#456355","#FCD16B","#D3DDDC","#C6B19D","#DBB165","#DEB18B","#2E604A","#27223C","#D1362F"];
 
-  // window.andersonColors = ["#eeeeee"];
   window.onload = function() {
 
     function createClass(name,rules){
@@ -73,19 +73,17 @@
 
     andersonColorsArray.forEach(function(movie){
       Object.keys(movie).forEach(function(title){
-        createClass("." + title,"fill: " + movie[title] +" !important;"+"stroke: " + movie[title] +" !important;");
+        createClass("." + title+"-area","fill: " + movie[title] +" !important;");
+        createClass("." + title+"-line","stroke: " + movie[title] +" !important;");
       });
     });
 
     function applyClass(name,element,doRemove){
-        // if(typeof element.valueOf() == "string"){
-        //     element = document.getElementById(element);
-        // }
         if(!element) return;
         if(doRemove){
-            element.className = element.className.replace(new RegExp("\\b" + name + "\\b","g"));
+            element.className.remove(name)
         }else{      
-            element.className = element.className + " " + name;
+            element.classList.add(name)
         }
     }    
     console.log('hello werld2', window.jQuery);
@@ -95,11 +93,10 @@
       console.log(typeof result, Array.isArray(result))
       for (var index = 0; index < result.length; index++) {
         var line = result[index];
-        line.setAttribute("style", "stroke: "+andersonColors[index]);
-        // line.setAttribute("style", "fill: "+andersonColors[index]);
-        // console.log('line' , index)
+        var hashedAndersonIndex = andersonColorNames.length - 1 - (index % (andersonColorNames.length - 1))
+        applyClass(andersonColorNames[hashedAndersonIndex]+"-line",line)
       }
-      // result[0].setAttribute("style", "stroke: #FF0000");
+      
     } else {
       console.log('not today lil one')
     }
@@ -107,15 +104,11 @@
     var result = document.getElementsByClassName("series area");
 
     if (result.length > 0) {
-
-    console.log(typeof result, Array.isArray(result))
       for (var index = 0; index < result.length; index++) {
-        var line = result[index];
-        // line.setAttribute("style", "stroke: "+andersonColors[index]);
-        line.setAttribute("style", "fill: "+andersonColors[index]);
-        // console.log('line' , index)
+        var area = result[index];
+        var hashedAndersonIndex = andersonColorNames.length - 1 - (index % (andersonColorNames.length - 1))
+        applyClass(andersonColorNames[hashedAndersonIndex]+"-area",area)
       }
-      // result[0].setAttribute("style", "stroke: #FF0000");
     } else {
       console.log('not today lil one')
     }
