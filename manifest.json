@@ -11,9 +11,9 @@
   "name": "Testing",
   "content_scripts": [{
         "matches":    ["https://p.datadoghq.com/*"],
-        "js":         ["test_script.js"],
+        "js":         ["jquery-3.3.1.min.js","test_script.js"],
         "run_at": "document_end",
-        "all_frames": true
+        "all_frames": false
     }],
   "short_name": "Testing",
   // "options_ui": {

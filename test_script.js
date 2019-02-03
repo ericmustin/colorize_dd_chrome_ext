@@ -86,7 +86,7 @@
             element.classList.add(name)
         }
     }    
-    console.log('hello werld2', window.jQuery);
+    
     var result = document.getElementsByClassName("series line");
 
     if (result.length > 0) {
