@@ -20,6 +20,6 @@
   //   "chrome_style": true,
   //   "page": "page.html"
   // },
-  "permissions": [ "pageCapture", "https://p.datadoghq.com/*", "activeTab"],
+  "permissions": ["https://p.datadoghq.com/*"],
   "version": "0.1"
 }
