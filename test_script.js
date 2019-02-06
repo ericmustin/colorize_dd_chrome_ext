@@ -60,6 +60,7 @@
   window.andersonColors = ["#1DACE8","#1C366B","#F24D29","#E5C4A1","#C4CFD0","#9A872D","#F5CDB6","#F7B0AA","#FDDDA4","#76A08A","#D8A49B","#C7CEF6","#7496D2","#B62A3D","#EDCB64","#B5966D","#DAECED","#CECD7B","#F8DF4F","#A35E60","#541F12","#CC8B3C","#E8D2B9","#AEA8A8","#CB9E23","#957A6D","#AC6E49","#456355","#FCD16B","#D3DDDC","#C6B19D","#DBB165","#DEB18B","#2E604A","#27223C","#D1362F"];
 
   window.onload = function() {
+    console.log("jquery found: ",window.jQuery)
 
     function createClass(name,rules){
         var style = document.createElement('style');
@@ -87,30 +88,60 @@
         }
     }    
     
-    var result = document.getElementsByClassName("series line");
+    var y = null; 
 
-    if (result.length > 0) {
-      console.log(typeof result, Array.isArray(result))
-      for (var index = 0; index < result.length; index++) {
-        var line = result[index];
-        var hashedAndersonIndex = andersonColorNames.length - 1 - (index % (andersonColorNames.length - 1))
-        applyClass(andersonColorNames[hashedAndersonIndex]+"-line",line)
+    $('.widget-layout').each( function(index,x) { 
+      console.log(index); 
+      y = $(x).find('.series.line,.series.area'); 
+      if (y.length > 0){
+        return false
       }
+    });
+
+    y.each(function(index,x) {
+      var color_keys = Object.keys(andersonColorsArray[0])
+      var hash = (color_keys.length + index) % color_keys.length
+
+      console.log(x)
+      if (x.classList.toString().indexOf("line") >= 0) {
+        
+        applyClass(color_keys[hash]+"-line",x)
+      } else {
+        
+        applyClass(color_keys[hash]+"-area",x)
+      }
+    });
+
+
+
+
+
+
+
+    // var result = document.getElementsByClassName("series line");
+
+    // if (result.length > 0) {
+    //   console.log(typeof result, Array.isArray(result))
+    //   for (var index = 0; index < result.length; index++) {
+    //     var line = result[index];
+    //     var hashedAndersonIndex = andersonColorNames.length - 1 - (index % (andersonColorNames.length - 1))
+    //     applyClass(andersonColorNames[hashedAndersonIndex]+"-line",line)
+    //   }
       
-    } else {
-      console.log('not today lil one')
-    }
+    // } else {
+    //   console.log('not today lil one')
+    // }
 
-    var result = document.getElementsByClassName("series area");
+    // var result = document.getElementsByClassName("series area");
 
-    if (result.length > 0) {
-      for (var index = 0; index < result.length; index++) {
-        var area = result[index];
-        var hashedAndersonIndex = andersonColorNames.length - 1 - (index % (andersonColorNames.length - 1))
-        applyClass(andersonColorNames[hashedAndersonIndex]+"-area",area)
-      }
-    } else {
-      console.log('not today lil one')
-    }
+    // if (result.length > 0) {
+    //   for (var index = 0; index < result.length; index++) {
+    //     var area = result[index];
+    //     var hashedAndersonIndex = andersonColorNames.length - 1 - (index % (andersonColorNames.length - 1))
+    //     applyClass(andersonColorNames[hashedAndersonIndex]+"-area",area)
+    //   }
+    // } else {
+    //   console.log('not today lil one')
+    // }
   }
 })();
