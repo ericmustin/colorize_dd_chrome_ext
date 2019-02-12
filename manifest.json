@@ -1,7 +1,7 @@
 {
-  // "background": {
-  //   "scripts": ["background.js"]
-  // },
+  "background": {
+    "scripts": ["background.js"]
+  },
   // "content_security_policy": "",
   "browser_action": {
     "default_popup": "popup.html"
@@ -10,8 +10,10 @@
   "manifest_version": 2,
   "name": "Testing",
   "content_scripts": [{
-        "matches":    ["https://p.datadoghq.com/*"],
-        "js":         ["jquery-3.3.1.min.js","test_script.js"],
+        // "matches":    ["https://p.datadoghq.com/*"],
+        // "js":         ["jquery-3.3.1.min.js","test_script.js"],
+        "matches":    ["https://stackoverflow.com/questions/26229882/chrome-extension-open-the-captured-screen-shot-in-new-tab"],
+        "js":         ["test_script_two.js"],
         "run_at": "document_end",
         "all_frames": false
     }],
@@ -20,6 +22,6 @@
   //   "chrome_style": true,
   //   "page": "page.html"
   // },
-  "permissions": [ "pageCapture", "https://p.datadoghq.com/*", "activeTab", "tabs"],
+  "permissions": [ "pageCapture", "https://p.datadoghq.com/*", "activeTab", "tabs", "<all_urls>", "*://*/*"],
   "version": "0.1"
 }
