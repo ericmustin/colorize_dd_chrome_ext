@@ -10,10 +10,10 @@
   "manifest_version": 2,
   "name": "Testing",
   "content_scripts": [{
-        // "matches":    ["https://p.datadoghq.com/*"],
+        "matches":    ["https://p.datadoghq.com/*"],
         // "js":         ["jquery-3.3.1.min.js","test_script.js"],
-        "matches":    ["https://stackoverflow.com/questions/26229882/chrome-extension-open-the-captured-screen-shot-in-new-tab"],
-        "js":         ["test_script_two.js"],
+        // "matches":    ["https://stackoverflow.com/questions/26229882/chrome-extension-open-the-captured-screen-shot-in-new-tab"],
+        "js":         ["jquery-3.3.1.min.js", "color-thief.min.js","test_script.js"],
         "run_at": "document_end",
         "all_frames": false
     }],

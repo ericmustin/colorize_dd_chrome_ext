@@ -45,6 +45,8 @@ chrome.runtime.onMessage.addListener( function(request, sender, sendResponse){
               console.log(chrome.tabs)
               chrome.tabs.sendMessage(window.oldId,{ picture: true, randomThing: 'somestuff', data: data });
               chrome.runtime.sendMessage({ picture: true, randomThing: 'somestuff', data: data });
+              var updateProperties = {"active": true};
+              chrome.tabs.update(window.oldId, updateProperties);
         });
 
 
