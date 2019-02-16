@@ -1,18 +1,28 @@
 <!DOCTYPE html>
+
 <html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
   <body style="background-color: #89da59;">
     <div style="width:150px; color: #ff420e; font-weight: bold; font-family: sans-serif;">Paint</div>
     <form>
     <!-- <input type="url" name="website" id="website"> -->
-    <input type="button" name="fetch homepage colors" id="website_button" value="get colors" role="button">
-      <select>
-        <option value="example_1">example_1</option>
-        <option value="example_2" selected>example_2</option>
+    <button type="button" name="fetch homepage colors" id="website_button" role="button" >
+     update 🐶 📊 💹 📉 
+    </button>
+      <select id="selected_type">
+        <option value=1 >use hex codes</option>
+        <option value=2 selected>use url</option>
       </select>
     </form>
-    <div>
-      <ul>
-      <li>
+    <div class="form_type">
+      <input type="multiple" name="color_csv_input" id="color_csv" placeholder="#333,#eee,#287aa9">
+    </div>
+    <div class="form_type">
+      <div>
+        <input type="url" name="color_url_input" id="color_url" placeholder="https://example.com">
+      </div>
     </div>
   </body>
   <script src="background_two.js"> </script>
