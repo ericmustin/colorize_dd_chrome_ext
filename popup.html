@@ -16,46 +16,53 @@
           height: 120px;
         }
         
-        .button {
+        .button_dd {
           color: #fff;
           background: #39c;
           border-color: #39c #39c #297aa3;
-
           user-select: none;
           position: relative;
           cursor: pointer;
           transition: color .15s ease-in-out,box-shadow .15s ease-in-out,border-color .15s ease-in-out;
           padding: .231em .75em .308em;
           font-weight: 700;
-          color: #4d4d4d;
-          background: #fff;
           border: 1px solid #b4b4b4;
           border-bottom-color: #aaa;
           border-radius: 4px;
           box-sizing: border-box;
           box-shadow: none;
-         }        
 
+          font-size: 14px;
+  
+
+          float: right;          
+         }        
+         .button_container {
+            width: 320px;
+            margin-top: 16px;
+            height: 42px;
+            position: relative;         
+         }
     </style>    
   </head>
   <body style="background-color: #774AA4;">
-    <div style="width:320px; color: #fff; font-weight: bold; font-size: 22px;">Paint Dashboard</div>
-    <form style="width: 320px; margin-top: 8px">
-      <select id="selected_type" style="font-size: 16px;" >
-        <option value=1> hex codes csv</option>
-        <option value=2 selected>website</option>
+    <div style="width:320px; color: #fff; font-weight: bold; font-size: 18px;">Paint Your Public Screenboards</div>
+    <form style="width: 320px; margin-top: 8px; margin-bottom: 4px">
+      <select id="selected_type" style="font-size: 14px;" >
+        <option value=1> input 4 hex codes, comma seperated </option>
+        <option value=2 selected>scrape a website's color palette</option>
       </select>
     </form>
     <div class="form_type">
-      <input type="multiple" name="color_csv_input" id="color_csv" placeholder="#333,#287aa9,#eee,#ffdb58" style="font-size: 16px" class="hideInput">
+      <input type="multiple" name="color_csv_input" id="color_csv" placeholder="#333,#287aa9,#eee,#ffdb58" style="font-size: 12px" class="hideInput">
     </div>
     <div class="form_type">
       <div>
-        <input type="url" name="color_url_input" id="color_url" placeholder="https://example.com" style="font-size: 16px">
+        <input type="url" name="color_url_input" id="color_url" placeholder="https://example.com" style="font-size: 12px">
       </div>
     </div>
-    <div style="width: 320px;">
-      <button type="button" name="fetch homepage colors" id="website_button" role="button" style="font-size: 16px; margin-right: 4px; background-color: rgb(166,166,166); float: right;" class="button">
+    <div class="button_container">
+      <button type="button" name="fetch homepage colors" id="website_button" role="button" style="margin-right: 4px; float: right;" class="button_dd">
        update all 📊 → 
       </button>
     </div>
