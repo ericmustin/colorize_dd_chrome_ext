@@ -92,7 +92,7 @@
       if(!element) return;
 
       if(doRemove){
-        element.className.remove(name)
+        element.classList.remove(name)
       }else{      
         element.classList.add(name)
       }

@@ -3,24 +3,29 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <style>
+        .hideInput {
+          display: none !important;
+        }
+    </style>    
   </head>
   <body style="background-color: #89da59;">
-    <div style="width:150px; color: #ff420e; font-weight: bold; font-family: sans-serif;">Paint</div>
+    <div style="width:320px; color: #ff420e; font-weight: bold; font-family: sans-serif; font-size: 18px;">Paint Dashboard</div>
     <form>
-      <button type="button" name="fetch homepage colors" id="website_button" role="button" >
+      <button type="button" name="fetch homepage colors" id="website_button" role="button" style="font-size: 16px" >
        update 🐶 📊 💹 📉 
       </button>
-      <select id="selected_type">
-        <option value=1 >use 4 hex codes</option>
-        <option value=2 selected>use url</option>
+      <select id="selected_type" >
+        <option value=1> hex codes csv</option>
+        <option value=2 selected>website</option>
       </select>
     </form>
     <div class="form_type">
-      <input type="multiple" name="color_csv_input" id="color_csv" placeholder="#333,#287aa9,#eee,#ffdb58">
+      <input type="multiple" name="color_csv_input" id="color_csv" placeholder="#333,#287aa9,#eee,#ffdb58" style="font-size: 16px" class="hideInput">
     </div>
     <div class="form_type">
       <div>
-        <input type="url" name="color_url_input" id="color_url" placeholder="https://example.com">
+        <input type="url" name="color_url_input" id="color_url" placeholder="https://example.com" style="font-size: 16px">
       </div>
     </div>
   </body>

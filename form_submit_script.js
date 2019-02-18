@@ -1,9 +1,11 @@
 'use strict';
 
 (function() {
+  // map btwn <select> selected_type options and <input> form_type values
+  var options_map = ["color_csv","color_url"]
+  
   var getDetails = function() {
-    // map btwn <select> selected_type options and <input> form_type values
-    var options_map = ["color_csv","color_url"]
+
 
     var selected_object, selected_value, selected_input;
 
@@ -17,5 +19,29 @@
 
   };
 
+
+  var showInput = function(event) {
+    console.log(event)
+
+    var value = event.target.options[event.target.selectedIndex].value
+    console.log('value now', value)
+    console.log(options_map.find(function(x){return (x !== options_map[value-1])}))
+    var unhideInput = document.getElementById(options_map[value-1])
+    var hideInput = document.getElementById( options_map.find(function(x){return (x !== options_map[value-1])}) )
+    
+    applyClass("hideInput", hideInput)
+    applyClass("hideInput", unhideInput, true)
+  }
+
+  function applyClass(name,element,doRemove){
+    if(!element) return;
+
+    if(doRemove){
+      element.classList.remove(name)
+    }else{      
+      element.classList.add(name)
+    }
+  } 
+  document.getElementById('selected_type').onchange = showInput;
   document.getElementById("website_button").onclick = getDetails;
 })();
