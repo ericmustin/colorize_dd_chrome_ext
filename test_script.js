@@ -81,13 +81,6 @@
             style.sheet.insertRule(name+"{"+rules+"}",0);
     }
 
-    customColorsArray.forEach(function(movie){
-      Object.keys(movie).forEach(function(title){
-        createClass("." + title+"-area","fill: " + movie[title] +" !important;");
-        createClass("." + title+"-line","stroke: " + movie[title] +" !important;");
-      });
-    });
-
     function applyClass(name,element,doRemove){
       if(!element) return;
 
@@ -98,6 +91,15 @@
       }
     }    
     
+
+    customColorsArray.forEach(function(movie){
+      Object.keys(movie).forEach(function(title){
+        createClass("." + title+"-area","fill: " + movie[title] +" !important;");
+        createClass("." + title+"-line","stroke: " + movie[title] +" !important;");
+      });
+    });
+
+
     var y = null; 
 
     $('.widget-layout').each( function(index,x) { 
@@ -118,4 +120,6 @@
       }
     });
   }
+
+
 })();

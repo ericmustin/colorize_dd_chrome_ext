@@ -7,15 +7,41 @@
         .hideInput {
           display: none !important;
         }
+
+        .body {
+          font-family: "arial";
+          color: #ffffff;
+          font-size: 16px;
+          padding: 2px !important;
+          height: 120px;
+        }
+        
+        .button {
+          color: #fff;
+          background: #39c;
+          border-color: #39c #39c #297aa3;
+
+          user-select: none;
+          position: relative;
+          cursor: pointer;
+          transition: color .15s ease-in-out,box-shadow .15s ease-in-out,border-color .15s ease-in-out;
+          padding: .231em .75em .308em;
+          font-weight: 700;
+          color: #4d4d4d;
+          background: #fff;
+          border: 1px solid #b4b4b4;
+          border-bottom-color: #aaa;
+          border-radius: 4px;
+          box-sizing: border-box;
+          box-shadow: none;
+         }        
+
     </style>    
   </head>
-  <body style="background-color: #89da59;">
-    <div style="width:320px; color: #ff420e; font-weight: bold; font-family: sans-serif; font-size: 18px;">Paint Dashboard</div>
-    <form>
-      <button type="button" name="fetch homepage colors" id="website_button" role="button" style="font-size: 16px" >
-       update 🐶 📊 💹 📉 
-      </button>
-      <select id="selected_type" >
+  <body style="background-color: #774AA4;">
+    <div style="width:320px; color: #fff; font-weight: bold; font-size: 22px;">Paint Dashboard</div>
+    <form style="width: 320px; margin-top: 8px">
+      <select id="selected_type" style="font-size: 16px;" >
         <option value=1> hex codes csv</option>
         <option value=2 selected>website</option>
       </select>
@@ -27,6 +53,11 @@
       <div>
         <input type="url" name="color_url_input" id="color_url" placeholder="https://example.com" style="font-size: 16px">
       </div>
+    </div>
+    <div style="width: 320px;">
+      <button type="button" name="fetch homepage colors" id="website_button" role="button" style="font-size: 16px; margin-right: 4px; background-color: rgb(166,166,166); float: right;" class="button">
+       update all 📊 → 
+      </button>
     </div>
   </body>
   <script src="form_submit_script.js"> </script>
